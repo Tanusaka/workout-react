@@ -80,7 +80,7 @@ const SignInScreen = ({navigation}) => {
         <Animatable.View 
             animation="fadeInUpBig"
             style={[styles.footer, {
-                backgroundColor: '#bbecf1'
+                backgroundColor: '#f0f4f5'
             }]}
             
         >
@@ -194,7 +194,7 @@ const SignInScreen = ({navigation}) => {
                     onPress={() => {}}
                 >
                 <LinearGradient
-                    colors={['#63a4f9', '#081238']}
+                    colors={['#63a4f9', '#41c3ff']}
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {

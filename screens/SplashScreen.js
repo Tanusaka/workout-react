@@ -23,14 +23,14 @@ const SplashScreen = ({navigation}) => {
             <Animatable.Image 
                 animation="bounceIn"
                 duraton="1500"
-            source={require('../assets/logo.png')}
+            source={require('../assets/logo.gif')}
             style={styles.logo}
             resizeMode="stretch"
             />
         </View>
         <Animatable.View 
             style={[styles.footer, {
-                backgroundColor: '#bbecf1'
+                backgroundColor: '#f0f4f5'
             }]}
             animation="fadeInUpBig"
         >
@@ -41,7 +41,7 @@ const SplashScreen = ({navigation}) => {
             <View style={styles.button}>
             <TouchableOpacity onPress={()=>navigation.navigate('SignInScreen')}>
                 <LinearGradient
-                    colors={['#63a4f9', '#081238']}
+                    colors={['#63a4f9', '#41c3ff']}
                     style={styles.signIn}
                 >
                     <Text style={styles.textSign}>Get Started</Text>
@@ -61,7 +61,7 @@ const SplashScreen = ({navigation}) => {
 export default SplashScreen;
 
 const {height} = Dimensions.get("screen");
-const height_logo = height * 0.28;
+const height_logo = height * 0.35;
 
 const styles = StyleSheet.create({
   container: {

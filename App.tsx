@@ -48,23 +48,23 @@ function App(): JSX.Element {
   const CustomDefaultTheme = {
     ...NavigationDefaultTheme,
     ...PaperDefaultTheme,
-    // colors: {
-    //   ...NavigationDefaultTheme.colors,
-    //   ...PaperDefaultTheme.colors,
-    //   background: '#ffffff',
-    //   text: '#333333'
-    // }
+    colors: {
+      ...NavigationDefaultTheme.colors,
+      ...PaperDefaultTheme.colors,
+      background: '#ffffff',
+      text: '#333333'
+    }
   }
   
   const CustomDarkTheme = {
-    // ...NavigationDarkTheme,
-    // ...PaperDarkTheme,
-    // colors: {
-    //   ...NavigationDarkTheme.colors,
-    //   ...PaperDarkTheme.colors,
-    //   background: '#333333',
-    //   text: '#ffffff'
-    // }
+    ...NavigationDarkTheme,
+    ...PaperDarkTheme,
+    colors: {
+      ...NavigationDarkTheme.colors,
+      ...PaperDarkTheme.colors,
+      background: '#333333',
+      text: '#ffffff'
+    }
   }
 
   const theme = isDarkTheme ? CustomDarkTheme : CustomDefaultTheme;
@@ -164,7 +164,12 @@ function App(): JSX.Element {
     <NavigationContainer theme={theme}>
       { loginState.userToken !== null ? (
         <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-          <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+          <Drawer.Screen name="HomeDrawer" component={MainTabScreen} options={{
+        headerShown: false,
+        drawerActiveBackgroundColor: 'transparent',
+        drawerActiveTintColor: 'white',
+        drawerInactiveTintColor: 'white',
+      }}/>
           <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
           <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />

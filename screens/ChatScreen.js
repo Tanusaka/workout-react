@@ -12,24 +12,59 @@ import { createStackNavigator } from '@react-navigation/stack';
 var new_mssg_id = 0;
 var loopcount = 1;
 
+var reciver_id = 0;
+
 const ChatScreen = () => {
   const [messages, setMessages] = useState([]);
+  const [chat_new, setChat_new] = useState([]);
   const [messagesid, setmessagesid] = useState(0);
 
 
 
   
   useEffect(() => {
-
+    // setMessages([
+    //   {
+    //     _id: 1,
+    //     text: 'Hello developer',
+    //     createdAt: new Date(),
+    //     user: {
+    //       _id: 2,
+    //       name: 'React Native',
+    //       avatar: 'https://placeimg.com/140/140/any',
+    //     },
+    //   },
+    //   {
+    //     _id: 2,
+    //     text: 'Hello world',
+    //     createdAt: new Date(),
+    //     user: {
+    //       _id: 1,
+    //       name: 'React Native',
+    //       avatar: 'https://placeimg.com/140/140/any',
+    //     },
+    //   },
+    //   {
+    //     _id: 3,
+    //     text: 'Hello world',
+    //     createdAt: new Date(),
+    //     user: {
+    //       _id: 1,
+    //       name: 'React Native',
+    //       avatar: 'https://placeimg.com/140/140/any',
+    //     },
+    //   },
+    // ]);
     load_chat();
-
+     // setMessages(chat_new);
+    // console.log(chat_new);
   }, []);
 
 
 
 
   const load_chat = () => {
- 
+    const user_chat_push = [];
 
     try {
       setTimeout(async () => {
@@ -42,7 +77,6 @@ const ChatScreen = () => {
 
 
           const data = {
-            "user_id": 3,
             "other_user_id": 4,
             "limit": 0,
             "offset": 0
@@ -50,25 +84,26 @@ const ChatScreen = () => {
 
           
           axios.post(`${BASE_URL}/chats/get`, data, { headers: { 'Authorization': 'Bearer ' + Token } }).then(res => {
-            const user_chat_push = [];
+            
 
             const Chat_all = res.data["messages"];
             for (let userObject of Chat_all) {
-              console.log(userObject);
+                console.log(userObject["receiver_id"]);
+                console.log(userid);
 
               if (userObject["receiver_id"] != userid) {
 
-                var senser_id = 1
-                var reciver_id = 2
+                reciver_id = 2;
+                console.log("<>"+userid);
 
               }
               if (userObject["receiver_id"] == userid) {
-                var senser_id = 2
-                var reciver_id = 1
+                reciver_id = 1;
+                console.log("__"+userid);
 
               }
                 user_chat_push.push({
-                  _id: senser_id,
+                  _id: userObject["message_id"],
                   text: userObject["message_text"],
                   createdAt: new Date(),
                   user: {
@@ -82,13 +117,15 @@ const ChatScreen = () => {
               {
                 new_mssg_id = userObject["message_id"];
               }
-
+              //window.location.reload()
+              console.log(user_chat_push);
               setMessages(user_chat_push);
-
+              // setChat_new(user_chat_push);
             }
-            setMessages(messages => []);
-            console.log(messages);
-            // setMessages(user_chat_push);
+            // window.location.reload()
+            // setMessages(messages => []);
+            
+            //  setMessages(chat_new);
 
           }).catch(e => {
             console.log(e);
@@ -101,7 +138,7 @@ const ChatScreen = () => {
     } catch (e) {
       console.log(e);
     }
-
+    // console.log(chat_new);
 
   }
 
@@ -110,7 +147,7 @@ const ChatScreen = () => {
 
   const onSend = useCallback((messages = []) => {
     setMessages((previousMessages) =>
-      GiftedChat.append(previousMessages, messages),
+      GiftedChat.append(previousMessages, messages, true),
     );
 
   }, []);

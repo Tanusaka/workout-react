@@ -104,7 +104,7 @@ const SignInScreen = ({navigation}) => {
 
 
     const loginHandle = (userName, password) => {
-        userName='ctmwebadmin@gmail.com';
+        userName='bmtanushka@gmail.com';
         password = 'abc123';
         axios.post(`${BASE_URL}auth/login`,{ 
             "email": userName,
@@ -175,7 +175,7 @@ const SignInScreen = ({navigation}) => {
         <Animatable.View 
             animation="fadeInUpBig"
             style={[styles.footer, {
-                backgroundColor: '#bbecf1'
+                backgroundColor: '#f0f4f5'
             }]}
         >
             <Text style={[styles.text_footer, {
@@ -270,7 +270,7 @@ const SignInScreen = ({navigation}) => {
                     onPress={() => {loginHandle( data.username, data.password )}}
                 >
                 <LinearGradient
-                    colors={['#63a4f9', '#081238']}
+                    colors={['#63a4f9', '#41c3ff']}
                     style={styles.signIn}
                 >
                     <Text style={[styles.textSign, {
@@ -333,7 +333,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#f2f2f2',
+        borderBottomColor: '#41c3ff',
         paddingBottom: 5
     },
     actionError: {

@@ -45,7 +45,7 @@ const MainTabScreen = () => (
         tabBarLabel: 'Home',
         tabBarColor: '#41c3ff',
         tabBarIcon: ({ color }) => (
-          <Icon name="ios-home" color={color} size={26} />
+          <Icon name="home" color={color} size={26} />
         ),
       }}
     />
@@ -56,7 +56,7 @@ const MainTabScreen = () => (
         tabBarLabel: 'Updates',
         tabBarColor: '#41c3ff',
         tabBarIcon: ({ color }) => (
-          <Icon name="ios-notifications" color={color} size={26} />
+          <Icon name="notifications" color={color} size={26} />
         ),
       }}
     />
@@ -78,7 +78,7 @@ const MainTabScreen = () => (
         tabBarLabel: 'Explore',
         tabBarColor: '#41c3ff',
         tabBarIcon: ({ color }) => (
-          <Icon name="ios-aperture" color={color} size={26} />
+          <Icon name="aperture" color={color} size={26} />
         ),
       }}
     />
@@ -100,7 +100,7 @@ const HomeStackScreen = ({ navigation }) => (
     <HomeStack.Screen name="Home" component={HomeScreen} options={{
       title: 'Dashboard',
       headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
+        <Icon.Button name="menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </HomeStack.Navigator>
@@ -118,7 +118,7 @@ const DetailsStackScreen = ({ navigation }) => (
   }}>
     <DetailsStack.Screen name="Notification" component={DetailsScreen} options={{
       headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
+        <Icon.Button name="menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
   </DetailsStack.Navigator>
@@ -138,7 +138,7 @@ const MassageStackScreen = ({ navigation }) => (
   }}>
     <MassageStack.Screen name="Messages" component={MessagesScreen} options={{
       headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
+        <Icon.Button name="menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
       )
     }} />
     <MassageStack.Screen
