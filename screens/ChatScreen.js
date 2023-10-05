@@ -23,41 +23,8 @@ const ChatScreen = () => {
 
   
   useEffect(() => {
-    // setMessages([
-    //   {
-    //     _id: 1,
-    //     text: 'Hello developer',
-    //     createdAt: new Date(),
-    //     user: {
-    //       _id: 2,
-    //       name: 'React Native',
-    //       avatar: 'https://placeimg.com/140/140/any',
-    //     },
-    //   },
-    //   {
-    //     _id: 2,
-    //     text: 'Hello world',
-    //     createdAt: new Date(),
-    //     user: {
-    //       _id: 1,
-    //       name: 'React Native',
-    //       avatar: 'https://placeimg.com/140/140/any',
-    //     },
-    //   },
-    //   {
-    //     _id: 3,
-    //     text: 'Hello world',
-    //     createdAt: new Date(),
-    //     user: {
-    //       _id: 1,
-    //       name: 'React Native',
-    //       avatar: 'https://placeimg.com/140/140/any',
-    //     },
-    //   },
-    // ]);
     load_chat();
-     // setMessages(chat_new);
-    // console.log(chat_new);
+    
   }, []);
 
 
@@ -72,9 +39,7 @@ const ChatScreen = () => {
         const Token = await AsyncStorage.getItem('userToken');
         const userid = await AsyncStorage.getItem('_userId');
 
-
         if (Token !== null) {
-
 
           const data = {
             "other_user_id": 4,
@@ -82,9 +47,7 @@ const ChatScreen = () => {
             "offset": 0
           };
 
-          
           axios.post(`${BASE_URL}/chats/get`, data, { headers: { 'Authorization': 'Bearer ' + Token } }).then(res => {
-            
 
             const Chat_all = res.data["messages"];
             for (let userObject of Chat_all) {
@@ -117,15 +80,12 @@ const ChatScreen = () => {
               {
                 new_mssg_id = userObject["message_id"];
               }
-              //window.location.reload()
-              console.log(user_chat_push);
-              setMessages(user_chat_push);
-              // setChat_new(user_chat_push);
-            }
-            // window.location.reload()
-            // setMessages(messages => []);
             
-            //  setMessages(chat_new);
+          
+              setMessages(user_chat_push);
+          
+            }
+           
 
           }).catch(e => {
             console.log(e);
