@@ -7,10 +7,13 @@ import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import { BASE_URL } from '../config';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useRoute } from "@react-navigation/native"
 
 
 var new_mssg_id = 0;
 var loopcount = 1;
+
+// const id = route.params?.id;
 
 var reciver_id = 0;
 
@@ -23,6 +26,7 @@ const ChatScreen = () => {
 
   
   useEffect(() => {
+    
     load_chat();
     
   }, []);
@@ -31,6 +35,7 @@ const ChatScreen = () => {
 
 
   const load_chat = () => {
+   
     const user_chat_push = [];
 
     try {
@@ -51,18 +56,15 @@ const ChatScreen = () => {
 
             const Chat_all = res.data["messages"];
             for (let userObject of Chat_all) {
-                console.log(userObject["receiver_id"]);
-                console.log(userid);
+                
 
               if (userObject["receiver_id"] != userid) {
 
                 reciver_id = 2;
-                console.log("<>"+userid);
 
               }
               if (userObject["receiver_id"] == userid) {
                 reciver_id = 1;
-                console.log("__"+userid);
 
               }
                 user_chat_push.push({

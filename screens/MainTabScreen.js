@@ -7,15 +7,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import HomeScreen from './HomeScreen';
+import HomeScreens  from './HomeScreens';
 import DetailsScreen from './DetailsScreen';
 import ExploreScreen from './ExploreScreen';
 import MessagesScreen from './MessagesScreen';
 import ChatScreen from '../screens/ChatScreen';
+
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
 const MassageStack = createStackNavigator();
-
 const Tab = createMaterialBottomTabNavigator();
 
 
@@ -71,6 +71,8 @@ const MainTabScreen = () => (
         ),
       }}
     />
+
+
     <Tab.Screen
       name="Explore"
       component={ExploreScreen}
@@ -97,7 +99,7 @@ const HomeStackScreen = ({ navigation }) => (
       fontWeight: 'bold'
     }
   }}>
-    <HomeStack.Screen name="Home" component={HomeScreen} options={{
+    <HomeStack.Screen name="Home" component={HomeScreens} options={{
       title: 'Dashboard',
       headerLeft: () => (
         <Icon.Button name="menu" size={25} backgroundColor="#41c3ff" onPress={() => navigation.openDrawer()}></Icon.Button>
@@ -163,6 +165,8 @@ const MassageStackScreen = ({ navigation }) => (
     />
   </MassageStack.Navigator>
 );
+
+
 
 
 

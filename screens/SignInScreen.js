@@ -104,7 +104,7 @@ const SignInScreen = ({navigation}) => {
 
 
     const loginHandle = (userName, password) => {
-        userName='bmtanushka@gmail.com';
+        userName='ctmwebstudent@gmail.com';
         password = 'abc123';
         axios.post(`${BASE_URL}auth/login`,{ 
             "email": userName,

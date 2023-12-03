@@ -27,6 +27,7 @@ import MainTabScreen from './screens/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
+import CouseDetailScreen from './screens/CourseDetails';
 
 import { AuthContext } from './components/context';
 
@@ -173,6 +174,13 @@ function App(): JSX.Element {
           <Drawer.Screen name="SupportScreen" component={SupportScreen} />
           <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
           <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
+          <Drawer.Screen name="CourseDetails" component={CouseDetailScreen} 
+          options={{
+            headerShown: false,
+            drawerActiveBackgroundColor: 'transparent',
+            drawerActiveTintColor: 'white',
+            drawerInactiveTintColor: 'white',
+          }}/>
         </Drawer.Navigator>
       )
     :
