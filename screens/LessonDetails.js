@@ -15,7 +15,7 @@ import CourseContent from './SectionContent';
 import { BASE_URL,IMAGE_URL } from '../config';
 
 
-const CourseDetail = (courseData) => {
+const CourseDetail = (Lesson) => {
     const param = useRoute().params;
     const [course, setCourse] = useState([])
     const navigation = useNavigation();
@@ -26,11 +26,7 @@ const CourseDetail = (courseData) => {
     useEffect(()=>{
 
       
-        
-        // setCourse(param?.courseData);
-        // param.courseData.id?getCourseProgress():null;
     },[])
-
 
 
     return (
@@ -45,20 +41,17 @@ const CourseDetail = (courseData) => {
                     fontWeight: 'bold',
                     marginTop:20,
                     color:'#41c3ff',
-                }}>{courseData.route.params.courseData.coursename}</Text>
+                }}>{Lesson.route.params.Lesson.lessonname}</Text>
                 {/* <Text style={{ color: Colors.gray }}>By Tubeguruji</Text> */}
-                <Image source={{ uri: IMAGE_URL+''+courseData.route.params.courseData.courseimage }}
+                <Image source={{ uri: IMAGE_URL+''+Lesson.route.params.Lesson.lessonmedia }}
                     style={{ height: 150, marginTop: 10, borderRadius: 10 }} />
                 <Text style={{
                     marginTop: 15,
                     fontSize: 16, fontWeight: 'bold',color:'#41c3ff'
-                }}>About Course</Text>
+                }}>Description</Text>
                 <Text numberOfLines={4}
-                    style={{ color: Colors.gray }}>{courseData.route.params.courseData.coursedescription}</Text>
+                    style={{ color: Colors.gray }}>{Lesson.route.params.Lesson.lessondescription}</Text>
             </View>
-            <CourseContent course={courseData} 
-         userProgress={userProgress}
-         courseType={param.courseType} />
         </View>
     );
 

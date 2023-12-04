@@ -28,7 +28,7 @@ import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
 import CouseDetailScreen from './screens/CourseDetails';
-
+import LessonDetails from './screens/LessonDetails';
 import { AuthContext } from './components/context';
 
 import RootStackScreen from './screens/RootStackScreen';
@@ -175,6 +175,13 @@ function App(): JSX.Element {
           <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
           <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
           <Drawer.Screen name="CourseDetails" component={CouseDetailScreen} 
+          options={{
+            headerShown: false,
+            drawerActiveBackgroundColor: 'transparent',
+            drawerActiveTintColor: 'white',
+            drawerInactiveTintColor: 'white',
+          }}/>
+          <Drawer.Screen name="LessonDetails" component={LessonDetails} 
           options={{
             headerShown: false,
             drawerActiveBackgroundColor: 'transparent',

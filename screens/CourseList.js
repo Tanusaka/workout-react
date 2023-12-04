@@ -44,6 +44,7 @@ export default function CourseList({type}) {
                       var courseintro=userObject.courseintro;
                       var courseimage=userObject.courseimage;
                       var price=userObject.price;
+                      var coursedescription =  userObject.coursedescription;
                       
                       course_select.push({
                         id: id,
@@ -51,6 +52,7 @@ export default function CourseList({type}) {
                         courseintro: courseintro,
                         courseimage:courseimage,
                         price:price,
+                        coursedescription:coursedescription,
                       })
                     }
                     if(type =='Intermidiate' && userObject.courselevel=="IL")
@@ -61,6 +63,7 @@ export default function CourseList({type}) {
                       var courseintro=userObject.courseintro;
                       var courseimage=userObject.courseimage;
                       var price=userObject.price;
+                      var coursedescription =  userObject.coursedescription;
                       
                       course_select.push({
                         id: id,
@@ -68,6 +71,7 @@ export default function CourseList({type}) {
                         courseintro: courseintro,
                         courseimage:courseimage,
                         price:price,
+                        coursedescription:coursedescription,
                       })
                     }
                     if(type =='Expert' && userObject.courselevel=="EL")
@@ -78,6 +82,7 @@ export default function CourseList({type}) {
                       var courseintro=userObject.courseintro;
                       var courseimage=userObject.courseimage;
                       var price=userObject.price;
+                      var coursedescription =  userObject.coursedescription;
                       
                       course_select.push({
                         id: id,
@@ -85,6 +90,7 @@ export default function CourseList({type}) {
                         courseintro: courseintro,
                         courseimage:courseimage,
                         price:price,
+                        coursedescription:coursedescription,
                       })
                     }
                     if(type =='Any' && userObject.courselevel=="AL")
@@ -95,6 +101,7 @@ export default function CourseList({type}) {
                       var courseintro=userObject.courseintro;
                       var courseimage=userObject.courseimage;
                       var price=userObject.price;
+                      var coursedescription = userObject.coursedescription;
                       
                       course_select.push({
                         id: id,
@@ -102,6 +109,7 @@ export default function CourseList({type}) {
                         courseintro: courseintro,
                         courseimage:courseimage,
                         price:price,
+                        coursedescription:coursedescription,
                       })
                     }
                       
@@ -116,10 +124,10 @@ export default function CourseList({type}) {
                   description:item.courseintro,
                   courseimage:item.courseimage,
                   price:item.price,
+                  coursedescription:coursedescription,
 
 
               }))
-              console.log(BASE_URL);
             setCourseList(result);
                 
                   
@@ -142,7 +150,7 @@ export default function CourseList({type}) {
 
     const onPressCourse=(course)=>{
         
-        navigation.navigate('course-detail',{courseData:course,
+        navigation.navigate('CourseDetails',{courseData:course,
           courseType:'text'})
     }
   return (
